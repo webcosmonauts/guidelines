@@ -1,11 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "webcosmonauts/guidelines",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": [
-        "framework",
-        "laravel"
-    ],
+    "description": "",
+    "keywords": [],
     "license": "MIT",
     "require": {
         "php": "^7.2",
