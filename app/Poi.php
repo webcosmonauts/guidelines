@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon created_at
  * @property \Carbon\Carbon updated_at
  *
- * @property \Illuminate\Database\Eloquent\Collection routes
+ * @property \App\Route[]|\Illuminate\Database\Eloquent\Collection routes
  */
 class Poi extends Model
 {

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRoutesPoisTable extends Migration
+class CreatePoiRouteTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRoutesPoisTable extends Migration
      */
     public function up()
     {
-        Schema::create('routes_pois', function (Blueprint $table) {
+        Schema::create('poi_route', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('route_id');
             $table->bigInteger('poi_id');
@@ -27,6 +27,6 @@ class CreateRoutesPoisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('routes_pois');
+        Schema::dropIfExists('poi_route');
     }
 }

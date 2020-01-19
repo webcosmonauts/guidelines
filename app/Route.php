@@ -15,13 +15,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon created_at
  * @property \Carbon\Carbon updated_at
  *
- * @property \Illuminate\Database\Eloquent\Collection pois
+ * @property \App\Poi[]|\Illuminate\Database\Eloquent\Collection pois
  */
 class Route extends Model
 {
     protected $fillable = ['title'];
 
     public function pois() {
-        return $this->hasMany(Poi::class);
+        return $this->belongsToMany(Poi::class);
     }
 }

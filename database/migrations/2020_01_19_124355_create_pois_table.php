@@ -16,8 +16,8 @@ class CreatePoisTable extends Migration
         Schema::create('pois', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->float('latitude');
-            $table->float('longitude');
+            $table->decimal('latitude', 10, 8);
+            $table->decimal('longitude', 11, 7);
             $table->timestamps();
         });
     }
