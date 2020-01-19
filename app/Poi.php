@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property float longitude
  * @property \Carbon\Carbon created_at
  * @property \Carbon\Carbon updated_at
+ *
+ * @property \Illuminate\Database\Eloquent\Collection routes
  */
 class Poi extends Model
 {
@@ -25,4 +27,8 @@ class Poi extends Model
         'latitude' => 'float',
         'longitude' => 'float',
     ];
+
+    public function routes() {
+        return $this->belongsToMany(Route::class);
+    }
 }
