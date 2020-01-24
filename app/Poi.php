@@ -24,8 +24,8 @@ class Poi extends Model
     protected $fillable = ['title', 'latitude', 'longitude'];
 
     protected $casts = [
-        'latitude' => 'float',
-        'longitude' => 'float',
+        'latitude' => 'decimal:8',
+        'longitude' => 'decimal:7',
     ];
 
     public function routes() {
