@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from "./sections/Header";
-import Map from "./sections/Map";
+import GuidelinesMap from "./sections/GuidelinesMap";
 import Footer from "./sections/Footer";
 
 class Main extends React.Component{
@@ -9,7 +9,7 @@ class Main extends React.Component{
         return (
             <div className="container-fluid">
                 <Header />
-                <Map />
+                <GuidelinesMap />
                 <Footer />
             </div>
         );
