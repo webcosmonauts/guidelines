@@ -6,6 +6,7 @@
 
         <title>{{ config('app.name') }}</title>
 
+        <link rel="stylesheet" href="/css/admin.css" />
         @stack('styles')
     </head>
     <body>
