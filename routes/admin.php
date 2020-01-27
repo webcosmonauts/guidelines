@@ -19,7 +19,7 @@ Route::namespace('App\\Http\\Controllers\\Web')->group(function () {
     ]);
 });
 
-Route::middleware(['auth.admin'])->group(function () {
+Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 });
