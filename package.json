@@ -28,6 +28,8 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.12.0",
         "bulma": "^0.8.0",
+        "bulma-checkradio": "^1.1.1",
+        "bulma-switch": "^2.0.0",
         "google-map-react": "latest",
         "react-bulma-components": "^3.1.3",
         "react-google-maps": "^9.4.5"

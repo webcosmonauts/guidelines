@@ -18,10 +18,8 @@
                     </p>
                 </div>
                 <div class="field">
-                    <label class="checkbox">
-                        <input name="remember" type="checkbox">
-                        Remember me
-                    </label>
+                    <input class="is-checkradio" type="checkbox" id="remember" name="remember">
+                    <label for="remember">Remember me</label>
                 </div>
                 <button class="button is-primary is-outlined is-fullwidth">
                     <span class="icon"><i class="fas fa-sign-in-alt"></i></span>

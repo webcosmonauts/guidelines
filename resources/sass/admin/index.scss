@@ -1,6 +1,8 @@
 $body-overflow-y: auto;
 
-@import '~bulma/bulma';
+@import '~bulma';
+@import "~bulma-switch";
+@import "~bulma-checkradio";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 
