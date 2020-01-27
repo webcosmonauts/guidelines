@@ -12,6 +12,7 @@
     <body>
         @yield('body')
 
+        <script type="text/javascript" src="/js/admin.js"></script>
         @stack('scripts')
     </body>
 </html>
