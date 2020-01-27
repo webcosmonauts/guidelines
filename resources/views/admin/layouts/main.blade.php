@@ -3,7 +3,9 @@
 @section('body')
     @include('admin.components.navbar')
 
-    <main class="container is-fluid">
+    <section class="section">
         @yield('content')
-    </main>
+    </section>
+
+    @include('admin.components.footer')
 @endsection
