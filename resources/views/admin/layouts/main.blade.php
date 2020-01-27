@@ -1,9 +1,9 @@
 @extends('admin.index')
 
 @section('body')
-    @yield('content')
+    @include('admin.components.navbar')
+
+    <main class="container is-fluid">
+        @yield('content')
+    </main>
 @endsection
-
-@prepend('scripts')
-
-@endprepend

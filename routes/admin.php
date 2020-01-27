@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Web\DashboardController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -9,8 +10,16 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::namespace('App\\Http\\Controllers\\Web')->group(function () {
+    Auth::routes([
+        'register' => false,
+        'reset' => false,
+        'confirm' => false,
+        'verify' => false,
+    ]);
+});
 
-Route::middleware(['auth'])->group(function () {
-    //
+Route::middleware(['auth.admin'])->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
 });
