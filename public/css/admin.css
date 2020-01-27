@@ -429,7 +429,7 @@ html {
   -webkit-font-smoothing: antialiased;
   min-width: 300px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
      -moz-text-size-adjust: 100%;
@@ -18326,5 +18326,13 @@ readers do not read off random characters that represent icons */
 .fas {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
+}
+
+body::-webkit-scrollbar {
+  width: 0.9em;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #00d1b2;
 }
 

@@ -1,3 +1,7 @@
+$body-overflow-y: auto;
+
 @import '~bulma/bulma';
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
+
+@import "scrollbar";

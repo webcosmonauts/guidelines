@@ -24,8 +24,8 @@
                     </label>
                 </div>
                 <button class="button is-primary is-outlined is-fullwidth">
-                    <span class="icon"><i class="fas fa-user"></i></span>
-                    <span>Login</span>
+                    <span class="icon"><i class="fas fa-sign-in-alt"></i></span>
+                    <span>Sign in</span>
                 </button>
             </form>
         </div>
