@@ -73748,7 +73748,7 @@ function (_Component) {
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(google_map_react__WEBPACK_IMPORTED_MODULE_1___default.a, {
         bootstrapURLKeys: {
-          key: "AIzaSyCKyaU1lZi4gS7xf4QvsloMCKr7qXuQWm4"
+          key: "AIzaSyBaQ9AyS81o7SbF610sbDe58GNFkUDoAQE"
         },
         defaultCenter: this.props.center,
         defaultZoom: this.props.zoom
@@ -73765,10 +73765,10 @@ function (_Component) {
 
 _defineProperty(GuidelinesMap, "defaultProps", {
   center: {
-    lat: 51.0883761,
-    lng: 17.0047779
+    lat: 51.109856,
+    lng: 17.033198
   },
-  zoom: 11
+  zoom: 15
 });
 
 /* harmony default export */ __webpack_exports__["default"] = (GuidelinesMap);

@@ -6,17 +6,17 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 class GuidelinesMap extends Component {
     static defaultProps = {
         center: {
-            lat: 51.0883761,
-            lng: 17.0047779
+            lat: 51.109856,
+            lng: 17.033198,
         },
-        zoom: 11
+        zoom: 15
     };
 
     render() {
         return (
             <div style={{ height: '100vh', width: '100%' }}>
                 <GoogleMapReact
-                    bootstrapURLKeys={{ key: "AIzaSyCKyaU1lZi4gS7xf4QvsloMCKr7qXuQWm4" }}
+                    bootstrapURLKeys={{ key: "AIzaSyBaQ9AyS81o7SbF610sbDe58GNFkUDoAQE" }}
                     defaultCenter={this.props.center}
                     defaultZoom={this.props.zoom}
                 >
