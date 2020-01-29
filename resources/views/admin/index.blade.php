@@ -6,6 +6,8 @@
 
         <title>{{ config('app.name') }}</title>
 
+        <link rel="icon" href="/favicon.png" />
+
         <link rel="stylesheet" href="/css/admin.css" />
         @stack('styles')
     </head>
