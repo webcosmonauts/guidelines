@@ -33,6 +33,24 @@ class RoutesSeeder extends Seeder
             ],
         ]);
 
+        for ($i = 1; $i <= 4; $i++) {
+            $route = \App\Route::create([
+                'title' => 'Custom route ' . $i,
+            ]);
+
+            $pois = [];
+
+            for ($j = 1; $j <= 3; $j++) {
+                $pois[] = [
+                    'title' => $route->title . ' | POI ' . $j,
+                    'latitude' => '51.' . mt_rand(100000, 999999),
+                    'longitude' => '17.' . mt_rand(100000, 999999),
+                ];
+            }
+
+            $route->pois()->createMany($pois);
+        }
+
         factory(\App\Route::class, 100)->create()->each(function (\App\Route $route) {
             $route->pois()->saveMany(factory(\App\Poi::class, rand(3, 7))->create());
         });
