@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import GoogleMapReact from 'google-map-react';
-import RouteSelection from "../map/RouteSelection";
 
 const MapPin = ({ text }) => <div className="map_pin">{text}</div>;
 class GuidelinesMap extends Component {
@@ -20,7 +19,7 @@ class GuidelinesMap extends Component {
             lat: 51.109856,
             lng: 17.033198,
         },
-        zoom: 1
+        zoom: 13
     };
 
     componentDidMount() {
@@ -49,7 +48,7 @@ class GuidelinesMap extends Component {
 
     render() {
         const routeSelection = this.state.pois.map((item, i) => <option key={item.id}
-                                                                        value={item.id}>{item.title}</option>);
+                                                                        value={item.id - 1}>{item.title}</option>);
         const routes = this.state.route.map((route,i) => <MapPin key={route.id} lat={route.latitude} lng={route.longitude} />);
         return (
             <div style={{height: '100vh', width: '100%'}}>

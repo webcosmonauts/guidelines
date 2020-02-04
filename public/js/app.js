@@ -73581,29 +73581,6 @@ if (document.getElementById('root')) {
 
 /***/ }),
 
-/***/ "./resources/js/components/map/RouteSelection.jsx":
-/*!********************************************************!*\
-  !*** ./resources/js/components/map/RouteSelection.jsx ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function RouteSelection(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    className: "form-control"
-  }, this.props);
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (RouteSelection);
-
-/***/ }),
-
 /***/ "./resources/js/components/sections/Footer.jsx":
 /*!*****************************************************!*\
   !*** ./resources/js/components/sections/Footer.jsx ***!
@@ -73642,7 +73619,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var google_map_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! google-map-react */ "./node_modules/google-map-react/lib/index.js");
 /* harmony import */ var google_map_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(google_map_react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _map_RouteSelection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../map/RouteSelection */ "./resources/js/components/map/RouteSelection.jsx");
 function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
 
 function _typeof(obj) {
@@ -73746,7 +73722,6 @@ function _defineProperty(obj, key, value) {
 
 
 
-
 var MapPin = function MapPin(_ref) {
   var text = _ref.text;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -73787,12 +73762,9 @@ function (_Component) {
       fetch('http://guidelines.test/routes').then(function (response) {
         return response.json();
       }).then(function (data) {
-        /*this.buildRoute(data);*/
         _this2.setState({
           pois: data
         });
-
-        console.log(_this2.state.pois);
       });
     }
   }, {
@@ -73815,7 +73787,7 @@ function (_Component) {
       var routeSelection = this.state.pois.map(function (item, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           key: item.id,
-          value: item.id
+          value: item.id - 1
         }, item.title);
       });
       var routes = this.state.route.map(function (route, i) {
@@ -73857,7 +73829,7 @@ _defineProperty(GuidelinesMap, "defaultProps", {
     lat: 51.109856,
     lng: 17.033198
   },
-  zoom: 1
+  zoom: 13
 });
 
 /* harmony default export */ __webpack_exports__["default"] = (GuidelinesMap);
