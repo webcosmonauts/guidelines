@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="38" width="38">
+  <g opacity="1">
+    <g opacity="0.204502">
+      <ellipse fill="rgb(255,94,44)" fill-opacity="1" opacity="1" rx="19" ry="19" cx="19" cy="19"/>
+    </g>
+    <g opacity="0.401208">
+      <ellipse fill="rgb(255,94,44)" fill-opacity="1" opacity="1" rx="13" ry="13" cx="19" cy="19"/>
+    </g>
+    <g opacity="1">
+      <ellipse fill="rgb(255,94,44)" fill-opacity="1" opacity="1" rx="8" ry="8" cx="19" cy="19"/>
+    </g>
+  </g>
+</svg>

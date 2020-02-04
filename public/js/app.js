@@ -73581,6 +73581,29 @@ if (document.getElementById('root')) {
 
 /***/ }),
 
+/***/ "./resources/js/components/map/RouteSelection.jsx":
+/*!********************************************************!*\
+  !*** ./resources/js/components/map/RouteSelection.jsx ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function RouteSelection(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "form-control"
+  }, this.props);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (RouteSelection);
+
+/***/ }),
+
 /***/ "./resources/js/components/sections/Footer.jsx":
 /*!*****************************************************!*\
   !*** ./resources/js/components/sections/Footer.jsx ***!
@@ -73619,6 +73642,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var google_map_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! google-map-react */ "./node_modules/google-map-react/lib/index.js");
 /* harmony import */ var google_map_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(google_map_react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _map_RouteSelection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../map/RouteSelection */ "./resources/js/components/map/RouteSelection.jsx");
 function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
 
 function _typeof(obj) {
@@ -73665,19 +73689,19 @@ function _possibleConstructorReturn(self, call) {
   return _assertThisInitialized(self);
 }
 
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
 function _assertThisInitialized(self) {
   if (self === void 0) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   }
 
   return self;
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
 }
 
 function _inherits(subClass, superClass) {
@@ -73722,9 +73746,12 @@ function _defineProperty(obj, key, value) {
 
 
 
-var AnyReactComponent = function AnyReactComponent(_ref) {
+
+var MapPin = function MapPin(_ref) {
   var text = _ref.text;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, text);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "map_pin"
+  }, text);
 };
 
 var GuidelinesMap =
@@ -73733,30 +73760,92 @@ function (_Component) {
   _inherits(GuidelinesMap, _Component);
 
   function GuidelinesMap() {
+    var _this;
+
     _classCallCheck(this, GuidelinesMap);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(GuidelinesMap).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(GuidelinesMap).call(this));
+
+    _defineProperty(_assertThisInitialized(_this), "handleChange", function (event) {
+      _this.buildRoute(_this.state.pois[event.target.value]);
+    });
+
+    _this.state = {
+      pois: [],
+      route: []
+    };
+    _this.buildRoute = _this.buildRoute.bind(_assertThisInitialized(_this));
+    _this.addMarkers = _this.addMarkers.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(GuidelinesMap, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch('http://guidelines.test/routes').then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        /*this.buildRoute(data);*/
+        _this2.setState({
+          pois: data
+        });
+
+        console.log(_this2.state.pois);
+      });
+    }
+  }, {
+    key: "buildRoute",
+    value: function buildRoute(route) {
+      var routesArray = [];
+      routesArray = route.pois.map(function (routes, i) {
+        return routes;
+      });
+      this.setState({
+        route: routesArray
+      });
+    }
+  }, {
+    key: "addMarkers",
+    value: function addMarkers(markers) {}
+  }, {
     key: "render",
     value: function render() {
+      var routeSelection = this.state.pois.map(function (item, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          key: item.id,
+          value: item.id
+        }, item.title);
+      });
+      var routes = this.state.route.map(function (route, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MapPin, {
+          key: route.id,
+          lat: route.latitude,
+          lng: route.longitude
+        });
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         style: {
           height: '100vh',
           width: '100%'
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(google_map_react__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "select"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        name: "select_route",
+        id: "select_route",
+        onChange: this.handleChange
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "",
+        disabled: ""
+      }, "Select route"), routeSelection)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(google_map_react__WEBPACK_IMPORTED_MODULE_1___default.a, {
         bootstrapURLKeys: {
           key: "AIzaSyBaQ9AyS81o7SbF610sbDe58GNFkUDoAQE"
         },
-        defaultCenter: this.props.center,
-        defaultZoom: this.props.zoom
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AnyReactComponent, {
-        lat: 51.0883761,
-        lng: 17.0047779,
-        text: "My Marker"
-      })));
+        defaultZoom: this.props.zoom,
+        defaultCenter: this.props.center
+      }, routes));
     }
   }]);
 
@@ -73768,7 +73857,7 @@ _defineProperty(GuidelinesMap, "defaultProps", {
     lat: 51.109856,
     lng: 17.033198
   },
-  zoom: 15
+  zoom: 1
 });
 
 /* harmony default export */ __webpack_exports__["default"] = (GuidelinesMap);
@@ -73812,7 +73901,7 @@ function Header() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\laragon\www\guidelines\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\laragon\www\guidelines\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

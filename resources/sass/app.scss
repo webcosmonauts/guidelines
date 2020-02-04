@@ -1,1 +1,9 @@
 @import "app/variables";
+
+.map_pin{
+    background: url("../img/pin.svg") no-repeat center center;
+    width: 32px;
+    height: 32px;
+    display: block;
+    background-size: cover;
+}
